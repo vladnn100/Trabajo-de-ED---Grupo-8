@@ -11,6 +11,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+#define MAXFILA 100
 
+typedef char elementoCola[40];
+
+typedef struct Cola {
+	elementoCola elemcol;
+}Cola;
+
+int main(void) {
+	Cola nuevaCola[MAXFILA];
 }
