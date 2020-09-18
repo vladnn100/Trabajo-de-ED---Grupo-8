@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <title>Articulation Points</title>
-
-  <style type="text/css">
+  <!-- jqueury stuff.  Only used for the animation speed slider. -->
+<style type="text/css">
   	* {
   		box-sizing: border-box;
   		table-layout: fixed;
@@ -21,6 +21,12 @@
 			}
 
   </style>
+  <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="Estilos.css">
+  <link rel="stylesheet" href="../src/css/styleOrdenTopo.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">		
 
   <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script type="text/javascript">
@@ -295,12 +301,19 @@
         	else
         		network.body.nodes[i].options.color.background = '#97C2FC';
         
-        if(aps.length===0)
-        	window.alert("There are no Articulation Points.");
-        else
-        	window.alert("Articulation Points are the nodes : [ " + aps +" ]");
+        if(aps.length===0){
+			var contenedor1=document.getElementById("puntos-arti");
+			//window.alert("There are no Articulation Points.");
+			contenedor1.innerHTML="No se encontraron puntos de articulacion";
+		}else{
+			var contenedor1=document.getElementById("puntos-arti");
+			
+        	//window.alert("Articulation Points are the nodes : [ " + aps +" ]");
+			contenedor1.innerHTML=""+aps+"";
+			network.redraw();
 
-	  	network.redraw();
+		}
+
 	} 
 
 
@@ -319,16 +332,130 @@
 </head>
 
 <body onload="init();">
+    <nav>
+        <div  class="preheader-nav">
+            <div  class="container-fluid">
+                <div class="row">
+                    <div class="col-1 align-self-center">
+                        <img src="img/logo-fisi-header-chiquito.png" >
+                    </div>
+                    <div class="col-lg align-self-center">
+                        <h2 class="text-secondary">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</h2>
+                        <h4 class="text-secondary">Universidad Nacional Mayor de San Marcos</h4>
+                    </div>
+                    <div class="col-1 align-self-center">
+                        <img src="img/logo (chiquito).png">
+                    </div>
+                </div>
+                <br>
+                <h3 class="font-weight-bold">ESTRUCTURA DE DATOS</h3>
+                <br>
+                <nav class="navbar navbar-light">
+                    <form class="form-inline">
+                      <a href="menuOrden.html" class="btn btn-outline-success" >Orden Topologico</a>
+                      <a href="#" class="btn btn-outline-success">Puntos de ariticulacion</a>
+                    </form>
+                  </nav>
+		
+            </div>
+        </div>
+    </nav>
 
-	<div id="mynetwork" class="graph"></div>
-	<div  id="control" class="panel">
-		
-			<div class="row">Enter the number of nodes : <input type="number" id="nbrNodes" min="1" max="50" value="5"></div>
-			<div class="row"><button onclick="start()" >Draw</button></div>
-			<div class="row"><span><button onclick="findAPs()" >Find articulation points</button></span></div>
-		
-	</div>
 	
 
+    <main class="container container-1-now" >
+
+  <!-- Portfolio Item Heading -->
+				
+        <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+							
+    
+    
+
+  
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://revistadigital.inesem.es/informatica-y-tics/files/2017/03/grafo-1.jpg" style="width: 100%;max-height: 300px; border-radius: 10px;" alt="Grafos">
+        </div>
+    </div>
+
+
+
+
+    <!--Inicio Popup-->
+    <div class="modal" id="ventanaModal" style="overflow-x: scroll;" >
+        <div class="modal-dialog" style="width: 1000px; margin-right: 50%;" role="document">
+          <div class="modal-content" style="width: 1000px;">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body " style="width: 1000px;">
+				<div id="mynetwork" class="graph"></div>
+					
+				<div  id="control" class="panel">
+					
+					<div class="row">Cantida de nodo : <input type="number" id="nbrNodes" min="1" max="50" value="5"></div>
+					<div class="row"><button class="btn btn-success" onclick="start()" >Draw</button></div>
+					<div class="row"><span><button class="btn btn-success" onclick="findAPs()" >Encontrar PA</button></span></div>
+					<div class="row" style="color: green;">Puntos de articulacion encontrados</div>						
+
+					<div class="row" id="puntos-arti"></div>						
+				</div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+         </div>
+        </div>
+      </div>
+
+
+    <!--Fin Popup-->
+
+    <div class="row">
+        <hr>
+    </div>
+  <div class="row">
+
+    <div class="col-md-6">
+        <h3 class="my-3 titulo-1-now">Puntos de articulacion </h3>
+
+        <p class="parrafo-1-now">Para encontrar todos los puntos de articulación de una gráfica conexa, podemos utilizar una búsqueda en profundidad y realizar algunas operaciones adicionales. Al realizar la búsqueda en profundidad de la gráfica, nos van a sobrar aristas (que son las que formarían ciclos en el árbol de búsqueda). A estas aristas sobrantes las llamaremos aristas de conexión.</p>
+            <p class="parrafo-1-now"> Teniendo una gráfica conexa, llamamos punto de articulación a todos los vértices que siendo borrado ocasionarían que la gráfica dejara de ser conexa (podemos decir que es el equivalente en vértice a los puentes). Cuando una gráfica no contiene puntos de articulación se dice que es “dos conexa”.
+            </p>
+    </div>
+
+    <div class="col-md-6">
+      <h3 class="my-3 titulo-1-now">Opciones de grafo</h3>
+        
+        <br>    
+        <div id="valor-aca" style="display:flex;flex-direction:row;justify-content:space-around; ">
+            <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
+        
+        </div>
+    
+    
+    </div>
+
+  </div>
+
+</main>
+
+
+	<footer>	
+		<script src="../src/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+		
+		<script src="../src/jquery-3.2.1/jquery-3.2.1.slim.min.js"></script>
+		<script src="../src/jquery-3.2.1/popper.min.js"></script>
+		
+		<link rel="stylesheet" href="ThirdParty/jquery.ui.all.css">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+			
+		<script src="ThirdParty/jquery-1.5.2.min.js"></script>
+		<script src="ThirdParty/jquery-ui-1.8.11.custom.min.js"></script>
+		<script src="controleAlter.js"></script>
+
+
+		<script src="popup.js"></script>
+	</footer>
 </body>
 </html>
