@@ -39,8 +39,18 @@ TopoSortIndegree.prototype.constructor = TopoSortIndegree;
 TopoSortIndegree.superclass = Graph.prototype;
 
 TopoSortIndegree.prototype.addControls =  function()
-{		
-	this.startButton = addControlToAlgorithmBar("Button", "Do Topological Sort");
+{	
+	//var divButton=document.getElementById("valor-aca");
+	var divButton=document.getElementById("generalAnimationControlSection");
+	//Modificar css//	
+	this.startButton = addControlToAlgorithmBar("Button", "Iniciar");
+	this.startButton.classList.add('btn');
+	this.startButton.classList.add('btn-success');
+	//this.startButton.dataset.toggle="modal";
+	//this.startButton.dataset.target="#ventanaModal";
+	divButton.appendChild(this.startButton);
+	//divButton.appendChild(this.startButton);
+	//Fin de css//
 	this.startButton.onclick = this.startCallback.bind(this);
 	TopoSortIndegree.superclass.addControls.call(this, false);
 }	
@@ -420,7 +430,7 @@ TopoSortIndegree.prototype.enableUI = function(event)
 TopoSortIndegree.prototype.disableUI = function(event)
 {
 	
-	this.startButton.disabled = true;
+	this.startButton.disabled = true;//"true" como valor original
 	
 	TopoSortIndegree.superclass.disableUI.call(this, event);
 }

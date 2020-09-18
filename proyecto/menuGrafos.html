@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/styleOrdenTopo.css">
+    <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="visualizationPageStyle.css">
+			
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">		
+    <!-- jqueury stuff.  Only used for the animation speed slider. -->
+
+    <script type = "text/javascript" src = "AnimationLibrary/CustomEvents.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/UndoFunctions.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimatedObject.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimatedLabel.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimatedCircle.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimatedRectangle.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimatedLinkedList.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/HighlightCircle.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/Line.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/ObjectManager.js"> </script>
+    <script type = "text/javascript" src = "AnimationLibrary/AnimationMain.js"> </script>
+    
+    <script type = "text/javascript" src = "AlgorithmLibrary/Algorithm.js"> </script>
+    <script type = "text/javascript" src = "AlgorithmLibrary/Graph.js"> </script>
+    <script type = "text/javascript" src = "AlgorithmLibrary/TopoSortIndegree.js"> </script>
+
+    <title>Grafos</title>
+</head>
+<body onload="init();" class="VisualizationMainPage" style="background-color: rgba(154, 167, 167, 0.2);">
+    <nav></nav>
+    <main class="container container-1-now" >
+
+  <!-- Portfolio Item Heading -->
+				
+        <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+                        
+    
+    
+
+  
+    <div class="row">
+        <div class="col-md-12">
+            <img src="https://revistadigital.inesem.es/informatica-y-tics/files/2017/03/grafo-1.jpg" style="width: 100%;max-height: 300px; border-radius: 10px;" alt="Grafos">
+        </div>
+    </div>
+
+
+
+
+    <!--Inicio Popup-->
+    <div class="modal" id="ventanaModal" style="overflow-x: scroll;" >
+        <div class="modal-dialog" style="width: 1000px; margin-right: 50%;" role="document">
+          <div class="modal-content" style="width: 1000px;">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body " style="width: 1000px;">
+                <canvas id="canvas" width="1000" height="500"></canvas>
+            
+                <div id = "generalAnimationControlSection" >
+                    <table id="GeneralAnimationControls">  </table>		
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+         </div>
+        </div>
+      </div>
+
+
+    <!--Fin Popup-->
+
+    <div class="row">
+        <hr>
+    </div>
+  <div class="row">
+
+    <div class="col-md-6">
+        <h3 class="my-3 titulo-1-now">Orden topologico </h3>
+
+        <p class="parrafo-1-now">Una ordenación topológica (topological sort, topological ordering, topsort o toposort en inglés) de un grafo acíclico G dirigido es una ordenación lineal de todos los nodos de G que conserva la unión entre vértices del grafo G original.</p>
+            <p class="parrafo-1-now"> La condición que el grafo no contenga ciclos es importante, ya que no se puede obtener ordenación topológica de grafos que contengan ciclos.
+                Usualmente, para clarificar el concepto se suelen identificar los nodos con tareas a realizar en la que hay una precedencia a la hora de ejecutar dichas tareas. 
+            </p>
+           <p class="parrafo-1-now">La ordenación topológica por tanto es una lista en orden lineal en que deben realizarse las tareas.</p>
+    </div>
+
+    <div class="col-md-6">
+      <h3 class="my-3 titulo-1-now">Opciones de grafo </h3>
+        
+        <div id = "algoControlSection" >
+            
+            <table id="AlgorithmSpecificControls"> 
+            </table> 
+        </div>
+        <br>    
+        <div id="valor-aca" style="display:flex;flex-direction:row;justify-content:space-around; ">
+            <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
+        
+        </div>
+    
+    
+    </div>
+
+  </div>
+
+</main>
+    <footer></footer>
+
+    <script src="../src/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <script src="../src/jquery-3.2.1/jquery-3.2.1.slim.min.js"></script>
+    <script src="../src/jquery-3.2.1/popper.min.js"></script>
+    
+    <link rel="stylesheet" href="ThirdParty/jquery.ui.all.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+    <script src="ThirdParty/jquery-1.5.2.min.js"></script>
+    <script src="ThirdParty/jquery-ui-1.8.11.custom.min.js"></script>
+    <script src="controleAlter.js"></script>
+
+
+
+</body>
+</html>
