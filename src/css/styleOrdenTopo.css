@@ -1,9 +1,12 @@
 .container-1-now{
-    background-color: rgba(154, 167, 167, 0.1);
+    background-image: url('../../proyecto/backgroundWhite.png');
     border-radius: 10px;
-    border-style: solid;
-    border-color: rgba(154, 167, 167, 0.2);
+    border-style: double;
+    border-color: rgba(0, 0, 0, 1);
     padding: 10px;
+}
+.nav-style{
+    background: linear-gradient(rgba(159,197,248,1),rgba(125,196,238,0.8),rgba(159,197,248,0.5));
 }
 .titulo-1-now{
     font-family: 'Playfair Display', serif;
@@ -15,3 +18,4 @@
     padding: 2px;
     text-align: left;
 }
+

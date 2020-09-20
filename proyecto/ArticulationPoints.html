@@ -331,10 +331,10 @@
   
 </head>
 
-<body onload="init();">
+<body onload="init();" style="background-image: url('backgroundBlackBody2.png');">
     <nav>
-        <div  class="preheader-nav">
-            <div  class="container-fluid">
+        <div  class="preheader-nav"  >
+			<div  class="container-fluid nav-style">
                 <div class="row">
                     <div class="col-1 align-self-center">
                         <img src="img/logo-fisi-header-chiquito.png" >
@@ -352,8 +352,8 @@
                 <br>
                 <nav class="navbar navbar-light">
                     <form class="form-inline">
-                      <a href="menuOrden.html" class="btn btn-outline-success" >Orden Topologico</a>
-                      <a href="#" class="btn btn-outline-success">Puntos de ariticulacion</a>
+                      <a href="menuOrden.html" class="btn btn-success" >Orden Topologico</a>
+                      <a href="#" class="btn btn-success">Puntos de ariticulacion</a>
                     </form>
                   </nav>
 		
@@ -361,9 +361,10 @@
         </div>
     </nav>
 
-	
+	<br>
+	<br>
 
-    <main class="container container-1-now" >
+    <main class="container container-1-now">
 
   <!-- Portfolio Item Heading -->
 				
@@ -439,9 +440,14 @@
   </div>
 
 </main>
+<br>
+<br>
 
-
-	<footer>	
+	<footer id="sticky-footer" class="py-4  text-white-50">	
+			<div id="myfooter" class="container text-center">
+				<small class="font-weight-bold">Copyright &copy; Team 8</small>
+			</div>
+		
 		<script src="../src/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
 		
 		<script src="../src/jquery-3.2.1/jquery-3.2.1.slim.min.js"></script>
