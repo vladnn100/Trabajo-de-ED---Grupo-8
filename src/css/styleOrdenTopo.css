@@ -19,3 +19,17 @@
     text-align: left;
 }
 
+.imagen-algo{
+    width: 100%;
+    border-radius: 10px;
+    border-style: double;
+    border-color: rgba(0, 0, 0, 1);
+    border-width: 1px;
+}
+
+.puntos-arti{
+    min-height: 50px;
+    text-align: center;
+    width: 100%;
+    text-align: center;
+}
