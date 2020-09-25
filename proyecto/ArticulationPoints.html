@@ -4,6 +4,8 @@
   <meta charset="utf-8"/>
   <title>Articulation Points</title>
   <!-- jqueury stuff.  Only used for the animation speed slider. -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">    
+
 <style type="text/css">
   	* {
   		box-sizing: border-box;
@@ -396,9 +398,16 @@
 				<div id="mynetwork" class="graph" style="border-width: 2px; border-style: solid; border-color: black; border-radius: 5px;"></div>
 			</div>
             <div>
+				<div>
+					<p style="text-align: center;">
+						<input type="button" style="background-image:url(img/zoom-on.png); min-width: 32px; border-width: 0px;" id="mas">
+						<input type="button" style="background-image:url(img/zoom-in.png); min-width: 32px; border-width: 0px;" id="menos">
+					</p>        
+				</div>
 				<div style="text-align: center;">Cantidad de nodo : <input type="number" id="nbrNodes" min="1" max="50" value="5">
 					<button class="btn btn-success" onclick="start()" >Generar grafo</button>
 					<span><button class="btn btn-success" onclick="findAPs()" >Encontrar PA</button></span>
+
 				</div>
 				
 				<div  style="color: green; text-align: center;">Puntos de articulacion encontrados</div>						
@@ -469,6 +478,27 @@
 
 
 		<script src="popup.js"></script>
+
+		<script>
+			var zoom=1;
+			 
+			document.getElementById("mas").addEventListener("click",function(e){
+				zoom+=.10;
+				resize();
+			});
+			document.getElementById("menos").addEventListener("click",function(e){
+				if(zoom>0.2) {
+					zoom-=.10;
+					resize();
+				}
+			});
+			 
+			function resize() {
+				document.getElementById("mynetwork").style.zoom=zoom;
+				document.getElementById("value").innerHTML="x"+zoom.toFixed(2);
+			}
+			</script>
+		
 	</footer>
 </body>
 </html>
