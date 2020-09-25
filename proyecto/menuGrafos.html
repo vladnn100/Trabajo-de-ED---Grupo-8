@@ -81,7 +81,11 @@
             </div>
             <div class="modal-body " style="width: 1000px;">
                 <canvas id="canvas" width="1000" height="500"></canvas>
-            
+                <p style="text-align: center;">
+                    <input type="button" style="background-image:url(img/zoom-on.png); min-width: 32px; border-width: 0px;" id="mas">
+                    <input type="button" style="background-image:url(img/zoom-in.png); min-width: 32px; border-width: 0px;" id="menos">
+                </p>        
+        
                 <div id = "generalAnimationControlSection" >
                     <table id="GeneralAnimationControls">  </table>		
                 </div>
@@ -146,6 +150,27 @@
 
 
     <script src="popup.js"></script>
+
+    <script>
+        var zoom=1;
+         
+        document.getElementById("mas").addEventListener("click",function(e){
+            zoom+=.10;
+            resize();
+        });
+        document.getElementById("menos").addEventListener("click",function(e){
+            if(zoom>0.2) {
+                zoom-=.10;
+                resize();
+            }
+        });
+         
+        function resize() {
+            document.getElementById("canvas").style.zoom=zoom;
+            document.getElementById("value").innerHTML="x"+zoom.toFixed(2);
+        }
+        </script>
+
 
 </body>
 </html>
