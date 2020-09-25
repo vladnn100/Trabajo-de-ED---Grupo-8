@@ -15,22 +15,26 @@ body {
     flex: 1 0 auto;
   }
 
-.container-fluid{
-    background: #9FC5F8;
-    border-color: #6fa8dc;
+.titulo{
+	text-align: center;
+}
+
+.primertext{
+	font-weight: bolder;
+	color: #4b4b4b;
+}
+
+#barranav{
+    background-image: url("img/fotomurales-textura-pared-de-piedra.png");
     text-align: center;
 }
 
 #sticky-footer {
-    flex-shrink: none;
-    background: #9FC5F8;
-    border-color: #6fa8dc;
+	background-image: url("img/fotomurales-textura-pared-de-piedra.png");
+	position: absolute;
+  	bottom: 0;
+  	width: 100%;
   }
-
-#myfooter{
-    background: #9FC5F8;
-    border-color: #6fa8dc;
-}
 
 .contenedor .btn-abrir-popup {
 	padding: 0 20px;

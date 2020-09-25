@@ -333,17 +333,17 @@
   
 </head>
 
-<body onload="init();" style="background-image: url('backgroundBlackBody2.png');">
+<body onload="init();" style="background-image: url('img/pared-negra2.jpg');">
     <nav>
         <div  class="preheader-nav"  >
-			<div  class="container-fluid nav-style">
+			<div id="barranav" class="container-fluid rounded nav-style">
                 <div class="row">
                     <div class="col-1 align-self-center">
                         <img src="img/logo-fisi-header-chiquito.png" >
                     </div>
-                    <div class="col-lg align-self-center">
-                        <h2 class="text-secondary">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</h2>
-                        <h4 class="text-secondary">Universidad Nacional Mayor de San Marcos</h4>
+                    <div class="col-sm align-self-center">
+                        <h2 class="primertext">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</h2>
+                        <h4 class="primertext">Universidad Nacional Mayor de San Marcos</h4>
                     </div>
                     <div class="col-1 align-self-center">
                         <img src="img/logo (chiquito).png">
@@ -352,12 +352,10 @@
                 <br>
                 <h3 class="font-weight-bold">ESTRUCTURA DE DATOS</h3>
                 <br>
-                <nav class="navbar navbar-light">
-                    <form class="form-inline">
-                      <a href="menuOrden.html" class="btn btn-success" >Orden Topologico</a>
-                      <a href="#" class="btn btn-success">Puntos de ariticulacion</a>
-                    </form>
-                  </nav>
+                <div class="container navbar navbar-light align-items-center">
+					<a href="menuGrafos.html" class="btn btn-secondary" >Orden Topologico</a>
+					<a href="ArticulationPoints.html" class="btn btn-secondary">Puntos de ariticulacion</a>
+			  </div>
 		
             </div>
         </div>
@@ -366,7 +364,7 @@
 	<br>
 	<br>
 
-    <main class="container container-1-now">
+    <main class="container rounded container-1-now" style="background-image: url('img/fon1.jpg');">
 
   <!-- Portfolio Item Heading -->
 				
@@ -446,7 +444,7 @@
         
         <br>    
         <div id="valor-aca" style="display:flex;flex-direction:row;justify-content:space-around; ">
-            <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
+            <button class="btn btn-secondary" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
         
         </div>
     

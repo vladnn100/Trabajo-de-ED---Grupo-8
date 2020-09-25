@@ -5,9 +5,7 @@
     border-color: rgba(0, 0, 0, 1);
     padding: 10px;
 }
-.nav-style{
-    background: linear-gradient(rgba(159,197,248,1),rgba(125,196,238,0.8),rgba(159,197,248,0.5));
-}
+
 .titulo-1-now{
     font-family: 'Playfair Display', serif;
         text-shadow: 1px 1px black;
