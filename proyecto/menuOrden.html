@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProyectoED</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">    
     <link rel="stylesheet" href="../src/css/styleOrdenTopo.css">
     <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../src/bootstrap-4.0.0/dist/css/bootstrap.min.css">
@@ -34,70 +33,61 @@
 
     <title>Grafos</title>
 </head>
-<body onload="init();" class="VisualizationMainPage"style="background-image: url('backgroundBlackBody2.png');">
+<body onload="init();" class="VisualizationMainPage" style="background-image: url('img/pared-negra2.jpg');">
     <nav>
         <div  class="preheader-nav">
-            <div  class="container-fluid nav-style">
+            <div  id="barranav" class="container-fluid rounded nav-style">
                 <div class="row">
                     <div class="col-1 align-self-center">
                         <img src="img/logo-fisi-header-chiquito.png" >
                     </div>
-                    <div class="col-lg align-self-center">
-                        <h2 class="text-secondary">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</h2>
-                        <h4 class="text-secondary">Universidad Nacional Mayor de San Marcos</h4>
+                    <div class="col-sm align-self-center">
+                        <h2 class="primertext">FACULTAD DE INGENIERIA DE SISTEMAS E INFORMATICA</h2>
+                        <h4 class="primertext">Universidad Nacional Mayor de San Marcos</h4>
                     </div>
                     <div class="col-1 align-self-center">
                         <img src="img/logo (chiquito).png">
                     </div>
                 </div>
                 <br>
-                <h3 class="font-weight-bold">ESTRUCTURA DE DATOS</h3>
+                <h3 class="font-weight-bold segundotext">ESTRUCTURA DE DATOS</h3>
                 <br>
-                <nav class="navbar navbar-light">
-                    <form class="form-inline">
-                      <a href="#" class="btn btn-success" >Orden Topologico</a>
-                      <a href="ArticulationPoints.html" class="btn btn-success">Puntos de ariticulacion</a>
-                    </form>
-                  </nav>
+                <div class="container navbar navbar-light align-items-center">
+                    <a href="menuGrafos.html" class="btn btn-secondary" type="button">Orden Topologico</a>
+                    <a href="ArticulationPoints.html" class="btn btn-secondary" type="button">Puntos de articulacion</a>
+                </div>
         
             </div>
         </div>
     </nav>
-	<br>
-	<br>
-    <main class="container container-1-now" style="background-image: url('backgroundWhite.png');">
+    <br>
+    <br>
+    <main class="container rounded container-1-now" style="background-image: url('img/fon1.jpg')" >
 
   <!-- Portfolio Item Heading -->
 				
         <!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
                         
-    <div class="row">
-        <div class="col-md-12" style="text-align: center;">
-            <img src="https://revistadigital.inesem.es/informatica-y-tics/files/2017/03/grafo-1.jpg" style="width: 40%;max-height: 300px; border-radius: 10px;" alt="Grafos">
-        </div>
-    </div>
+    
+
+
 
 
     <!--Inicio Popup-->
-    <div class="modal" id="ventanaModal" style="overflow-x: scroll;" >    
+    <div class="modal" id="ventanaModal" style="overflow-x: scroll;" >
         <div class="modal-dialog" style="width: 1000px; margin-right: 50%;" role="document">
           <div class="modal-content" style="width: 1000px;">
             <div class="modal-header">
             </div>
             <div class="modal-body " style="width: 1000px;">
-                <canvas id="canvas" width="1000" height="500" style="min-width: 1000px; min-height: 500px;">
-                    
-                </canvas>
-                <p style="text-align: right;">
-                    <input type="button" style="background-image:url(img/zoom-on.png); min-width: 32px; border-width: 0px;" id="mas">
-                    <input type="button" style="background-image:url(img/zoom-in.png); min-width: 32px; border-width: 0px;" id="menos">
-                </p>        
-        
+                <canvas id="canvas" width="1000" height="500"></canvas>
+            
                 <div id = "generalAnimationControlSection" >
                     <table id="GeneralAnimationControls">  </table>		
                 </div>
             </div>
             <div class="modal-footer">
+
             </div>
          </div>
         </div>
@@ -112,9 +102,6 @@
   <div class="row">
 
     <div class="col-md-6">
-        
-        <img src="img/puntosArti.jpeg" class="imagen-algo" alt="" srcset="">
-        <!--
         <h3 class="my-3 titulo-1-now">Orden topologico </h3>
 
         <p class="parrafo-1-now">Una ordenación topológica (topological sort, topological ordering, topsort o toposort en inglés) de un grafo acíclico G dirigido es una ordenación lineal de todos los nodos de G que conserva la unión entre vértices del grafo G original.</p>
@@ -122,7 +109,6 @@
                 Usualmente, para clarificar el concepto se suelen identificar los nodos con tareas a realizar en la que hay una precedencia a la hora de ejecutar dichas tareas. 
             </p>
            <p class="parrafo-1-now">La ordenación topológica por tanto es una lista en orden lineal en que deben realizarse las tareas.</p>
-        -->
     </div>
 
     <div class="col-md-6">
@@ -135,7 +121,7 @@
         </div>
         <br>    
         <div id="valor-aca" style="display:flex;flex-direction:row;justify-content:space-around; ">
-            <button class="btn btn-success" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
+            <button class="btn btn-secondary" data-toggle="modal" data-target="#ventanaModal">Abrir grafo</button>
         
         </div>
     
@@ -145,30 +131,6 @@
   </div>
 
 </main>
-<br>
-<br>
-
-<script>
-    var zoom=1;
-     
-    document.getElementById("mas").addEventListener("click",function(e){
-        zoom+=.10;
-        resize();
-    });
-    document.getElementById("menos").addEventListener("click",function(e){
-        if(zoom>0.2) {
-            zoom-=.10;
-            resize();
-        }
-    });
-     
-    function resize() {
-        document.getElementById("canvas").style.zoom=zoom;
-        document.getElementById("value").innerHTML="x"+zoom.toFixed(2);
-    }
-    </script>
-
-
 <footer id="sticky-footer" class="py-4  text-white-50">
     <div id="myfooter" class="container text-center">
         <small class="font-weight-bold">Copyright &copy; Team 8</small>
